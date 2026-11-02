@@ -1887,8 +1887,8 @@
   var DB_NAME = 'SpacedRepetitionCertExamDB';
   var DB_VERSION = 1;
   var MAX_IMAGES_PER_SIDE = 3;
-  var IMG_MAX_DIM = 800;
-  var IMG_QUALITY = 0.8;
+  var IMG_MAX_DIM = 1600;
+  var IMG_QUALITY = 0.88;
 
   /* =========================================================
    * 2. 日付ユーティリティ（ローカルタイムゾーン基準 YYYY-MM-DD）
@@ -2140,6 +2140,8 @@
           canvas.width = w;
           canvas.height = h;
           var ctx = canvas.getContext('2d');
+          ctx.imageSmoothingEnabled = true;
+          ctx.imageSmoothingQuality = 'high';
           ctx.fillStyle = '#ffffff';
           ctx.fillRect(0, 0, w, h);
           ctx.drawImage(img, 0, 0, w, h);

@@ -2179,7 +2179,7 @@
 
     if (score < 3) {
       newRep = 0;
-      newInterval = 1;
+      newInterval = 0;
     } else {
       if (prevRep === 0) {
         newInterval = (score === 5) ? 3 : 1;
@@ -2205,7 +2205,7 @@
       newRep = prevRep + 1;
     }
 
-    var nextDate = addDaysToDateString(todayStr, newInterval);
+    var nextDate = (score < 3) ? todayStr : addDaysToDateString(todayStr, newInterval);
     return {
       repetition: newRep,
       interval: newInterval,
@@ -2897,9 +2897,14 @@
       card.lastScore = updated.lastScore;
       card.lastReviewedAt = updated.lastReviewedAt;
 
+      var idxInAll = state.cards.findIndex(function(c) { return c.id === card.id; });
+      if (idxInAll >= 0) {
+        state.cards[idxInAll] = card;
+      }
+
       dbPutCard(card).then(function() {
         if (requeued) {
-          showToast('セッション末尾に再追加しました');
+          showToast('要再確認：本日の復習に残しました');
         }
         state.reviewIndex += 1;
         renderCurrentReviewCard();
@@ -2922,18 +2927,24 @@
       state.reviewQueue.pop();
     }
 
-    var idxInAll = state.cards.findIndex(function(c) { return c.id === restored.id; });
-    if (idxInAll >= 0) {
-      state.cards[idxInAll] = restored;
+    var targetCard = state.cards.find(function(c) { return c.id === restored.id; });
+    if (targetCard) {
+      Object.keys(restored).forEach(function(k) {
+        targetCard[k] = restored[k];
+      });
+    } else {
+      targetCard = restored;
+      state.cards.push(targetCard);
     }
+
     for (var i = 0; i < state.reviewQueue.length; i++) {
-      if (state.reviewQueue[i].id === restored.id) {
-        state.reviewQueue[i] = restored;
+      if (state.reviewQueue[i].id === targetCard.id) {
+        state.reviewQueue[i] = targetCard;
       }
     }
     state.reviewIndex = lastEntry.index;
 
-    dbPutCard(restored).then(function() {
+    dbPutCard(targetCard).then(function() {
       renderCurrentReviewCard();
       showToast('1つ前のカードに戻りました');
     });

@@ -32,8 +32,6 @@
     --warning-soft: #fef3c7;
     --danger: #dc2626;
     --danger-soft: #fee2e2;
-    --purple: #7c3aed;
-    --purple-soft: #ede9fe;
     --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05), 0 1px 2px rgba(15, 23, 42, 0.03);
     --shadow-md: 0 6px 16px -2px rgba(15, 23, 42, 0.07), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
     --shadow-lg: 0 16px 36px -4px rgba(15, 23, 42, 0.14), 0 4px 12px -2px rgba(15, 23, 42, 0.06);
@@ -65,8 +63,6 @@
     --warning-soft: rgba(245, 158, 11, 0.16);
     --danger: #ef4444;
     --danger-soft: rgba(239, 68, 68, 0.18);
-    --purple: #a78bfa;
-    --purple-soft: rgba(167, 139, 250, 0.16);
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.35);
     --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.45);
     --shadow-lg: 0 16px 38px rgba(0, 0, 0, 0.65);
@@ -101,7 +97,6 @@
     -webkit-user-select: text;
   }
 
-  /* App Shell */
   .app-shell {
     display: flex;
     flex-direction: column;
@@ -192,7 +187,6 @@
     pointer-events: none;
   }
 
-  /* Main View Container */
   .main-content {
     flex: 1;
     overflow-y: auto;
@@ -216,7 +210,6 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* Bottom Navigation */
   .bottom-nav {
     position: fixed;
     bottom: 0;
@@ -286,7 +279,6 @@
     justify-content: center;
   }
 
-  /* Cards and Panels */
   .panel {
     background: var(--bg-surface);
     border: 1px solid var(--border-color);
@@ -306,12 +298,11 @@
     gap: 8px;
   }
 
-  /* Home Screen */
   .hero-review-card {
     background: var(--bg-surface);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-xl);
-    padding: 28px 24px;
+    padding: 26px 22px;
     text-align: center;
     box-shadow: var(--shadow-md);
     margin-bottom: 18px;
@@ -359,7 +350,7 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 8px;
-    margin-bottom: 20px;
+    margin-bottom: 14px;
     font-size: 12.5px;
     color: var(--text-muted);
   }
@@ -377,7 +368,6 @@
     color: var(--danger);
     border-color: transparent;
   }
-
 
   .hero-order-row {
     display: flex;
@@ -445,10 +435,6 @@
     box-shadow: 0 10px 24px rgba(2, 132, 199, 0.36);
   }
 
-  .start-review-btn:active:not(:disabled) {
-    transform: translateY(1px);
-  }
-
   .start-review-btn:disabled {
     background: var(--bg-surface-alt);
     color: var(--text-muted);
@@ -457,20 +443,18 @@
     cursor: not-allowed;
   }
 
-  /* Grid 2 columns on iPad */
   .home-grid {
     display: grid;
-    grid-template-columns: 1.12fr 0.88fr;
+    grid-template-columns: 1fr 1fr;
     gap: 16px;
   }
 
-  @media (max-width: 760px) {
+  @media (max-width: 820px) {
     .home-grid {
       grid-template-columns: 1fr;
     }
   }
 
-  /* Donut & Progress Stats */
   .stats-overview {
     display: flex;
     align-items: center;
@@ -480,8 +464,8 @@
 
   .donut-wrap {
     position: relative;
-    width: 138px;
-    height: 138px;
+    width: 134px;
+    height: 134px;
     flex-shrink: 0;
     margin: 0 auto;
   }
@@ -498,14 +482,14 @@
   }
 
   .donut-pct {
-    font-size: 23px;
+    font-size: 22px;
     font-weight: 800;
     color: var(--text-primary);
     line-height: 1.1;
   }
 
   .donut-caption {
-    font-size: 11px;
+    font-size: 10.5px;
     font-weight: 700;
     color: var(--text-muted);
     margin-top: 2px;
@@ -513,7 +497,7 @@
 
   .stats-legend {
     flex: 1;
-    min-width: 200px;
+    min-width: 190px;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -548,10 +532,9 @@
     font-weight: 800;
   }
 
-  /* Subject breakdown bars */
   .subject-progress-list {
     margin-top: 14px;
-    max-height: 200px;
+    max-height: 190px;
     overflow-y: auto;
     padding-right: 4px;
     display: flex;
@@ -589,6 +572,79 @@
     height: 100%;
   }
 
+  /* Ebbinghaus Forgetting Curve & Forecast */
+  .curve-svg-box {
+    width: 100%;
+    background: var(--bg-surface-alt);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 10px 10px 6px 10px;
+    margin-bottom: 12px;
+  }
+
+  .curve-legend-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    margin-top: 4px;
+  }
+
+  .curve-legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .curve-line-swatch {
+    width: 16px;
+    height: 3px;
+    border-radius: 2px;
+    display: inline-block;
+  }
+
+  .forecast-strip {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .forecast-day-box {
+    background: var(--bg-surface-alt);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 6px 4px;
+    text-align: center;
+  }
+
+  .forecast-day-label {
+    font-size: 10.5px;
+    font-weight: 700;
+    color: var(--text-muted);
+  }
+
+  .forecast-day-count {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-top: 2px;
+  }
+
+  .forecast-day-box.today-highlight {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
+
+  .forecast-day-box.today-highlight .forecast-day-count,
+  .forecast-day-box.today-highlight .forecast-day-label {
+    color: var(--accent-text);
+  }
+
   /* Forms & Buttons */
   .form-group {
     margin-bottom: 13px;
@@ -610,7 +666,7 @@
     background: var(--bg-surface);
     color: var(--text-primary);
     font-size: 14.5px;
-    transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
   }
 
   .form-select:focus, .form-input:focus, .form-textarea:focus {
@@ -638,11 +694,6 @@
   .secondary-btn:hover:not(:disabled) {
     background: var(--accent);
     color: #fff;
-  }
-
-  .secondary-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
   }
 
   .primary-btn {
@@ -680,50 +731,41 @@
     cursor: pointer;
   }
 
-  /* Registration Screen Tag Pill Bar */
-  .tag-Header-row {
+  /* Registration Screen Draft Cards */
+  .reg-drafts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 14px;
+  }
+
+  .draft-card-wrapper {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: 16px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .draft-card-top {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-color);
   }
 
-  .tag-chip-selector {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-  }
-
-  .tag-pill-btn {
-    padding: 6px 13px;
-    border-radius: 999px;
-    border: 1px solid var(--border-color);
-    background: var(--bg-surface-alt);
+  .draft-card-num {
+    font-size: 13.5px;
+    font-weight: 800;
     color: var(--text-secondary);
-    font-size: 13px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.14s ease;
   }
 
-  .tag-pill-btn:hover {
-    border-color: var(--accent);
-    color: var(--accent-text);
-  }
-
-  .tag-pill-btn.active {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: #ffffff;
-    box-shadow: 0 2px 8px rgba(2, 132, 199, 0.28);
-  }
-
-  /* Registration Screen Split Layout */
   .split-editor-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    gap: 14px;
   }
 
   @media (max-width: 820px) {
@@ -733,14 +775,13 @@
   }
 
   .editor-block {
-    background: var(--bg-surface);
+    background: var(--bg-surface-alt);
     border: 1.5px solid var(--border-color);
     border-radius: var(--radius-lg);
-    padding: 16px 18px;
-    box-shadow: var(--shadow-sm);
+    padding: 14px;
     display: flex;
     flex-direction: column;
-    gap: 11px;
+    gap: 10px;
     transition: border-color 0.15s ease, box-shadow 0.15s ease;
   }
 
@@ -762,7 +803,7 @@
     gap: 6px;
     padding: 4px 12px;
     border-radius: 999px;
-    font-size: 12.5px;
+    font-size: 12px;
     font-weight: 800;
   }
 
@@ -777,13 +818,13 @@
   }
 
   .editor-slot-counter {
-    font-size: 12px;
+    font-size: 11.5px;
     font-weight: 700;
     color: var(--text-muted);
   }
 
   .form-textarea {
-    min-height: 126px;
+    min-height: 110px;
     resize: vertical;
     line-height: 1.6;
   }
@@ -791,20 +832,20 @@
   .media-action-bar {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
+    gap: 7px;
   }
 
   .upload-trigger-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
-    padding: 9px 8px;
+    gap: 5px;
+    padding: 8px 6px;
     border-radius: var(--radius-sm);
     border: 1px solid var(--border-color);
-    background: var(--bg-surface-alt);
+    background: var(--bg-surface);
     color: var(--text-secondary);
-    font-size: 12.5px;
+    font-size: 12px;
     font-weight: 700;
     cursor: pointer;
     transition: all 0.15s ease;
@@ -818,8 +859,8 @@
   }
 
   .upload-trigger-btn svg {
-    width: 16px;
-    height: 16px;
+    width: 15px;
+    height: 15px;
     color: var(--accent);
     flex-shrink: 0;
   }
@@ -880,8 +921,69 @@
     color: #fff;
   }
 
+  .add-draft-btn {
+    width: 100%;
+    min-height: 46px;
+    border-radius: var(--radius-lg);
+    border: 1.5px dashed var(--accent);
+    background: var(--bg-surface);
+    color: var(--accent-text);
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    transition: background 0.15s ease;
+  }
+
+  .add-draft-btn:hover {
+    background: var(--accent-soft);
+  }
+
+  .tag-Header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+
+  .tag-chip-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+
+  .tag-pill-btn {
+    padding: 6px 13px;
+    border-radius: 999px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-surface-alt);
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.14s ease;
+  }
+
+  .tag-pill-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent-text);
+  }
+
+  .tag-pill-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(2, 132, 199, 0.28);
+  }
+
   .save-bar {
-    margin-top: 16px;
+    margin-top: 14px;
     display: flex;
     justify-content: flex-end;
   }
@@ -1216,15 +1318,16 @@
     box-shadow: var(--shadow-md);
   }
 
+  /* 4-Button Rating Grid */
   .rating-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 8px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
   }
 
-  @media (max-width: 680px) {
+  @media (max-width: 560px) {
     .rating-grid {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
@@ -1232,13 +1335,13 @@
     border: 1.5px solid var(--border-strong);
     background: var(--bg-surface-alt);
     border-radius: var(--radius-md);
-    padding: 10px 6px;
+    padding: 11px 8px;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2px;
+    gap: 3px;
     transition: transform 0.1s ease, background 0.15s ease;
   }
 
@@ -1246,43 +1349,37 @@
     transform: scale(0.96);
   }
 
-  .rate-score {
-    font-size: 20px;
-    font-weight: 800;
-    line-height: 1.1;
-  }
-
   .rate-label {
-    font-size: 11px;
-    font-weight: 700;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.2;
   }
 
   .rate-next {
-    font-size: 10px;
+    font-size: 11px;
     color: var(--text-muted);
-    margin-top: 2px;
     font-weight: 700;
   }
 
-  .rate-btn.r0, .rate-btn.r1, .rate-btn.r2 {
+  .rate-btn.r1 {
     border-color: rgba(220, 38, 38, 0.45);
     background: var(--danger-soft);
     color: var(--danger);
   }
 
-  .rate-btn.r3 {
+  .rate-btn.r2 {
     border-color: rgba(217, 119, 6, 0.45);
     background: var(--warning-soft);
     color: var(--warning);
   }
 
-  .rate-btn.r4 {
+  .rate-btn.r3 {
     border-color: rgba(2, 132, 199, 0.45);
     background: var(--accent-soft);
     color: var(--accent-text);
   }
 
-  .rate-btn.r5 {
+  .rate-btn.r4 {
     border-color: rgba(22, 163, 74, 0.45);
     background: var(--success-soft);
     color: var(--success);
@@ -1448,7 +1545,7 @@
         </svg>
       </div>
       <div>
-        <span class="brand-title">教員資格認定試験 分散学習</span>
+        <span class="brand-title">分散学習</span>
       </div>
     </div>
     <div class="header-actions">
@@ -1467,7 +1564,7 @@
         <div class="hero-date-chip" id="homeTodayDateChip">本日の学習スケジュール</div>
         <div class="hero-count-label">今日の復習</div>
         <div class="hero-count-number"><strong id="homeDueCount">0</strong><span>件</span></div>
-        <div class="hero-sub-breakdown" id="homeDueBreakdown" style="margin-bottom:14px;">
+        <div class="hero-sub-breakdown" id="homeDueBreakdown">
           <span class="breakdown-pill">本日予定：0件</span>
           <span class="breakdown-pill">期限超過：0件</span>
         </div>
@@ -1481,7 +1578,7 @@
         </div>
         <button type="button" class="start-review-btn" id="startDueReviewBtn" disabled>
           <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-          <span id="startDueReviewBtnText">本日の復習カードはありません</span>
+          <span id="startDueReviewBtnText">本日の復習は完了しています</span>
         </button>
       </div>
 
@@ -1494,27 +1591,27 @@
           </h2>
           <div class="stats-overview">
             <div class="donut-wrap">
-              <svg width="138" height="138" viewBox="0 0 42 42">
+              <svg width="134" height="134" viewBox="0 0 42 42">
                 <circle cx="21" cy="21" r="15.9155" fill="transparent" stroke="var(--border-color)" stroke-width="4.5"></circle>
                 <circle id="donutLearningCircle" cx="21" cy="21" r="15.9155" fill="transparent" stroke="#0284c7" stroke-width="4.5" stroke-dasharray="0 100" stroke-dashoffset="25"></circle>
                 <circle id="donutMasteredCircle" cx="21" cy="21" r="15.9155" fill="transparent" stroke="#16a34a" stroke-width="4.5" stroke-dasharray="0 100" stroke-dashoffset="25"></circle>
               </svg>
               <div class="donut-center">
                 <span class="donut-pct" id="donutMasteredPct">0%</span>
-                <span class="donut-caption">長期定着率<br>(30日超)</span>
+                <span class="donut-caption">長期定着率<br>(21日超)</span>
               </div>
             </div>
             <div class="stats-legend">
               <div class="legend-row">
-                <span class="legend-label"><span class="legend-dot" style="background:var(--success);"></span>長期定着 (30日超)</span>
+                <span class="legend-label"><span class="legend-dot" style="background:var(--success);"></span>長期定着 (21日超)</span>
                 <span class="legend-val" id="statMasteredCount">0枚 (0%)</span>
               </div>
               <div class="legend-row">
-                <span class="legend-label"><span class="legend-dot" style="background:var(--accent);"></span>学習中 (1〜30日)</span>
+                <span class="legend-label"><span class="legend-dot" style="background:var(--accent);"></span>定着形成中 (4〜21日)</span>
                 <span class="legend-val" id="statLearningCount">0枚 (0%)</span>
               </div>
               <div class="legend-row">
-                <span class="legend-label"><span class="legend-dot" style="background:var(--warning);"></span>初回・要復習</span>
+                <span class="legend-label"><span class="legend-dot" style="background:var(--warning);"></span>初期・要反復 (3日以下)</span>
                 <span class="legend-val" id="statInitialCount">0枚 (0%)</span>
               </div>
             </div>
@@ -1523,51 +1620,39 @@
           <div class="subject-progress-list" id="subjectProgressList"></div>
         </div>
 
-        <!-- Free Review Mode Panel -->
+        <!-- Ebbinghaus Forgetting Curve & 7-Day Forecast Panel -->
         <div class="panel">
           <h2 class="panel-title">
-            <span>フリー復習（自主演習）</span>
+            <span>忘却曲線・記憶保持率</span>
+            <span style="font-size:12px; color:var(--accent-text); font-weight:800;" id="avgRetentionBadge">平均保持率 --%</span>
           </h2>
-
-          <div class="form-group">
-            <label class="form-label" for="freeReviewTagSelect">科目タグ</label>
-            <select id="freeReviewTagSelect" class="form-select"></select>
+          <div class="curve-svg-box">
+            <svg id="forgettingCurveSvg" viewBox="0 0 320 148" width="100%" height="148" style="display:block; overflow:visible;"></svg>
+            <div class="curve-legend-bar">
+              <span class="curve-legend-item"><span class="curve-line-swatch" style="background:#f59e0b;"></span>初期(S≈1.5日)</span>
+              <span class="curve-legend-item"><span class="curve-line-swatch" style="background:#0284c7;"></span>形成中(S≈10日)</span>
+              <span class="curve-legend-item"><span class="curve-line-swatch" style="background:#16a34a;"></span>長期(S≈45日)</span>
+            </div>
           </div>
-          <div class="form-group">
-            <label class="form-label" for="freeReviewFilterSelect">抽出条件</label>
-            <select id="freeReviewFilterSelect" class="form-select">
-              <option value="all">すべてのカード</option>
-              <option value="weak">苦手・未定着（直近0〜2 または 7日未満）</option>
-              <option value="unmastered">長期定着前（30日以下）</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="freeReviewOrderSelect">出題順</label>
-            <select id="freeReviewOrderSelect" class="form-select">
-              <option value="shuffle">シャッフル（ランダム）</option>
-              <option value="efAsc">定着度が低い順（EF昇順）</option>
-              <option value="dueAsc">予定日が近い順</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="freeReviewModeSelect">スケジュール反映</label>
-            <select id="freeReviewModeSelect" class="form-select">
-              <option value="practice">反映しない（自主練習）</option>
-              <option value="update">次回復習日（SM-2）に反映する</option>
-            </select>
-          </div>
-          <button type="button" class="secondary-btn" id="startFreeReviewBtn" style="width:100%; margin-top:4px;">
-            フリー復習を開始する（<span id="freeReviewMatchCount">0</span>件）
-          </button>
+          <div style="font-size:12px; font-weight:800; color:var(--text-secondary); margin-bottom:4px;">今後7日間の復習予定</div>
+          <div class="forecast-strip" id="weekForecastStrip"></div>
         </div>
       </div>
     </section>
 
     <!-- 2. REGISTER VIEW -->
     <section id="view-register" class="view-container">
-      <div class="panel" style="padding:15px 18px;">
+      <!-- Dynamic Multi-Card Drafts Container -->
+      <div id="regDraftsList" class="reg-drafts-list"></div>
+
+      <button type="button" class="add-draft-btn" id="addDraftCardBtn">
+        <span>＋ 次のカード枠を追加</span>
+      </button>
+
+      <!-- Tag & Initial Review Timing Panel placed at the BOTTOM right above Save button -->
+      <div class="panel" style="padding:15px 18px; margin-bottom:14px;">
         <div class="tag-Header-row">
-          <label class="form-label" for="regTagSelect" style="margin:0;">科目タグ</label>
+          <label class="form-label" style="margin:0;">科目タグ（全枠共通）</label>
           <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
             <div style="display:inline-flex; align-items:center; gap:6px;">
               <span style="font-size:12px; font-weight:700; color:var(--text-secondary);">初回復習：</span>
@@ -1576,72 +1661,17 @@
                 <button type="button" class="order-pill-btn" data-timing="tomorrow">明日</button>
               </div>
             </div>
-            <button type="button" class="icon-btn" id="openNewTagModalBtn" style="height:32px; font-size:12px;">＋ 新規タグ追加</button>
+            <button type="button" class="icon-btn" id="openNewTagModalBtn" style="height:32px; font-size:12px;">＋ タグ追加</button>
           </div>
         </div>
-        <!-- 内部セレクト（互換維持用）＋ワンタップピルバー -->
         <select id="regTagSelect" class="form-select" style="display:none;"></select>
         <div class="tag-chip-selector" id="regTagChipBar"></div>
-      </div>
-
-      <div class="split-editor-grid">
-        <!-- Front (Question) -->
-        <div class="editor-block" id="regFrontDropZone">
-          <div class="editor-block-header">
-            <span class="editor-badge front">表面（問題）</span>
-            <span class="editor-slot-counter" id="regFrontSlotCount">画像 0 / 3</span>
-          </div>
-          <textarea id="regFrontText" class="form-textarea" placeholder="問題文を入力、またはスクショをここにペースト（Ctrl+V / ⌘+V）"></textarea>
-          <div class="media-action-bar">
-            <label class="upload-trigger-btn" for="regFrontCameraInput">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-              <span>カメラ</span>
-            </label>
-            <input type="file" id="regFrontCameraInput" accept="image/*" capture="environment" style="display:none;">
-            <label class="upload-trigger-btn" for="regFrontLibraryInput">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-              <span>写真選択</span>
-            </label>
-            <input type="file" id="regFrontLibraryInput" accept="image/*" multiple style="display:none;">
-            <button type="button" class="upload-trigger-btn" id="regFrontPasteBtn">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
-              <span>スクショ貼付</span>
-            </button>
-          </div>
-          <div class="thumb-strip" id="regFrontThumbStrip"></div>
-        </div>
-
-        <!-- Back (Explanation) -->
-        <div class="editor-block" id="regBackDropZone">
-          <div class="editor-block-header">
-            <span class="editor-badge back">裏面（解答・解説）</span>
-            <span class="editor-slot-counter" id="regBackSlotCount">画像 0 / 3</span>
-          </div>
-          <textarea id="regBackText" class="form-textarea" placeholder="正答・解説を入力、またはスクショをここにペースト（Ctrl+V / ⌘+V）"></textarea>
-          <div class="media-action-bar">
-            <label class="upload-trigger-btn" for="regBackCameraInput">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-              <span>カメラ</span>
-            </label>
-            <input type="file" id="regBackCameraInput" accept="image/*" capture="environment" style="display:none;">
-            <label class="upload-trigger-btn" for="regBackLibraryInput">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-              <span>写真選択</span>
-            </label>
-            <input type="file" id="regBackLibraryInput" accept="image/*" multiple style="display:none;">
-            <button type="button" class="upload-trigger-btn" id="regBackPasteBtn">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
-              <span>スクショ貼付</span>
-            </button>
-          </div>
-          <div class="thumb-strip" id="regBackThumbStrip"></div>
-        </div>
       </div>
 
       <div class="save-bar">
         <button type="button" class="save-card-btn" id="saveNewCardBtn">
           <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
-          <span>カードを保存して続けて登録する</span>
+          <span id="saveNewCardBtnLabel">カードを保存する（1枚）</span>
         </button>
       </div>
     </section>
@@ -1659,8 +1689,8 @@
           <select id="listStatusFilter" class="form-select">
             <option value="all">すべての状態</option>
             <option value="due">今日・期限超過</option>
-            <option value="learning">学習中（1〜30日）</option>
-            <option value="mastered">長期定着（30日超）</option>
+            <option value="learning">定着形成中（4〜21日）</option>
+            <option value="mastered">長期定着（21日超）</option>
           </select>
           <select id="listSortSelect" class="form-select">
             <option value="nextReviewAsc">復習日が近い順</option>
@@ -1692,23 +1722,13 @@
         <div style="display:flex; flex-wrap:wrap; gap:10px;">
           <button type="button" class="primary-btn" id="exportBackupBtn">
             <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-            <span>バックアップの作成（エクスポート）</span>
+            <span>バックアップの作成（JSON保存）</span>
           </button>
-          <button type="button" class="secondary-btn" id="exportBakedAnkiHtmlBtn">🌐 データ組込済みの anki.html を保存</button>
-          <button type="button" class="secondary-btn" id="copyAnkiJsonBtn">📋 JSON文字列をコピー</button>
           <label class="secondary-btn" for="importBackupInput" style="cursor:pointer;">
             <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
-            <span>JSON読み込み</span>
+            <span>バックアップの読み込み（JSON復元）</span>
           </label>
           <input type="file" id="importBackupInput" accept=".json,application/json" style="display:none;">
-          <button type="button" class="secondary-btn" id="toggleAnkiPasteJsonBtn">📝 JSON貼り付け復元</button>
-        </div>
-        <div id="ankiPasteJsonArea" style="display:none; margin-top:12px;">
-          <textarea id="ankiPasteJsonTextarea" class="form-textarea" style="min-height:90px; font-family:ui-monospace, monospace; font-size:12px;" placeholder="コピーしたJSON文字列を貼り付け..."></textarea>
-          <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:8px;">
-            <button type="button" class="icon-btn" id="cancelAnkiPasteJsonBtn">キャンセル</button>
-            <button type="button" class="primary-btn" id="applyAnkiPasteJsonBtn" style="padding:8px 16px; font-size:13px;">復元する</button>
-          </div>
         </div>
       </div>
 
@@ -1716,7 +1736,6 @@
         <h2 class="panel-title">表示テーマ・データ管理</h2>
         <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
           <button type="button" class="secondary-btn" id="settingsThemeToggleBtn">ライト / ダークモード切替</button>
-          <button type="button" class="secondary-btn" id="loadDemoCardsBtn">動作確認用サンプル問題（3件）を追加</button>
           <button type="button" class="danger-btn" id="resetAllDataBtn">全データを初期化</button>
         </div>
       </div>
@@ -1727,7 +1746,7 @@
   <nav class="bottom-nav" id="bottomNav">
     <button type="button" class="nav-tab active" data-target="view-home">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-      <span>ホーム（今日の学習）</span>
+      <span>ホーム</span>
       <span class="nav-badge" id="navDueBadge" style="display:none;">0</span>
     </button>
     <button type="button" class="nav-tab" data-target="view-register">
@@ -1739,8 +1758,8 @@
       <span>カード一覧</span>
     </button>
     <button type="button" class="nav-tab" data-target="view-settings">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-      <span>設定（バックアップ）</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06-.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+      <span>設定</span>
     </button>
   </nav>
 </div>
@@ -1766,7 +1785,7 @@
       <div class="review-card-header">
         <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
           <span class="editor-badge front">問題</span>
-          <span class="tag-chip" id="reviewCardTag">教育原理</span>
+          <span class="tag-chip" id="reviewCardTag">未分類</span>
         </div>
         <span style="font-size:12px; color:var(--text-muted); font-weight:700;" id="reviewCardMetaInfo">復習間隔: 初回</span>
       </div>
@@ -1788,39 +1807,22 @@
     <div class="review-footer-inner">
       <button type="button" class="show-answer-btn" id="showAnswerBtn">解答を表示する</button>
       <div id="ratingButtonsContainer" style="display:none;">
-        <div style="font-size:12px; font-weight:700; color:var(--text-secondary); text-align:center; margin-bottom:8px;" id="ratingModeNotice">
-          定着度を 0〜5 で評価
-        </div>
         <div class="rating-grid">
-          <button type="button" class="rate-btn r0" data-score="0">
-            <span class="rate-score">0</span>
-            <span class="rate-label">全く不明</span>
-            <span class="rate-next" id="rateNext0">次回: 明日</span>
+          <button type="button" class="rate-btn r1" data-grade="1">
+            <span class="rate-label">もう一度</span>
+            <span class="rate-next" id="rateNext1">当日再確認</span>
           </button>
-          <button type="button" class="rate-btn r1" data-score="1">
-            <span class="rate-score">1</span>
-            <span class="rate-label">誤答・見覚え</span>
-            <span class="rate-next" id="rateNext1">次回: 明日</span>
-          </button>
-          <button type="button" class="rate-btn r2" data-score="2">
-            <span class="rate-score">2</span>
-            <span class="rate-label">誤答・惜しい</span>
+          <button type="button" class="rate-btn r2" data-grade="2">
+            <span class="rate-label">難しい</span>
             <span class="rate-next" id="rateNext2">次回: 明日</span>
           </button>
-          <button type="button" class="rate-btn r3" data-score="3">
-            <span class="rate-score">3</span>
-            <span class="rate-label">正解・迷った</span>
-            <span class="rate-next" id="rateNext3">次回: 1日後</span>
+          <button type="button" class="rate-btn r3" data-grade="3">
+            <span class="rate-label">普通</span>
+            <span class="rate-next" id="rateNext3">次回: 明日</span>
           </button>
-          <button type="button" class="rate-btn r4" data-score="4">
-            <span class="rate-score">4</span>
-            <span class="rate-label">正解・概ね良</span>
-            <span class="rate-next" id="rateNext4">次回: 1日後</span>
-          </button>
-          <button type="button" class="rate-btn r5" data-score="5">
-            <span class="rate-score">5</span>
-            <span class="rate-label">完璧・余裕</span>
-            <span class="rate-next" id="rateNext5">次回: 1日後</span>
+          <button type="button" class="rate-btn r4" data-grade="4">
+            <span class="rate-label">簡単</span>
+            <span class="rate-next" id="rateNext4">次回: 4日後</span>
           </button>
         </div>
       </div>
@@ -1848,9 +1850,9 @@
       </div>
 
       <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px; align-items:center;">
-        <button type="button" class="icon-btn" id="quickSetTodayBtn">今日すぐ復習にする</button>
+        <button type="button" class="icon-btn" id="quickSetTodayBtn">今日にする</button>
         <button type="button" class="icon-btn" id="quickSetTomorrowBtn">明日にする</button>
-        <button type="button" class="icon-btn" id="quickResetSm2Btn">SM-2パラメータを初期化</button>
+        <button type="button" class="icon-btn" id="quickResetSm2Btn">定着度を初期化</button>
         <span style="font-size:12px; color:var(--text-muted); font-weight:700; margin-left:auto;" id="editSm2InfoText"></span>
       </div>
 
@@ -1944,29 +1946,10 @@
   'use strict';
 
   /* =========================================================
-   * 1. 定数・初期科目タグ定義
+   * 1. 定数・初期設定（デフォルト科目タグは空）
    * ========================================================= */
-  /* __ANKI_DEFAULTS_START__ */
-  var DEFAULT_TAGS = [
-    '教育原理',
-    '教育法規',
-    '教育心理',
-    '生徒指導・特別支援',
-    '学習指導要領',
-    '国語',
-    '社会',
-    '算数',
-    '理科',
-    '生活',
-    '音楽',
-    '図画工作',
-    '家庭',
-    '体育',
-    '外国語（英語）'
-  ];
-  var DEFAULT_CARDS = [];
-  /* __ANKI_DEFAULTS_END__ */
-
+  var DEFAULT_TAGS = [];
+  var UNTAGGED_LABEL = '未分類';
   var DB_NAME = 'SpacedRepetitionCertExamDB';
   var DB_VERSION = 1;
   var MAX_IMAGES_PER_SIDE = 3;
@@ -2004,7 +1987,7 @@
   }
 
   /* =========================================================
-   * 3. IndexedDB 永続化レイヤー（制限環境用メモリフォールバック付）
+   * 3. IndexedDB 永続化レイヤー
    * ========================================================= */
   var memoryFallbackStore = {
     cards: [],
@@ -2159,9 +2142,14 @@
   }
 
   /* =========================================================
-   * 4. SM-2 分散学習アルゴリズム計算
+   * 4. 4段階分散学習アルゴリズム（Anki / FSRS 改良SM-2）
+   * grade:
+   *   1 = もう一度 (Again): 当日再出題, interval=0, rep=0, EF -0.20, nextReviewDate=todayStr
+   *   2 = 難しい   (Hard) : 初回1日, 2回目3日, 以降 prev*1.2, EF -0.15
+   *   3 = 普通     (Good) : 初回1日, 2回目6日, 以降 (prev+overdue*0.5)*EF, EF ±0
+   *   4 = 簡単     (Easy) : 初回4日, 2回目10日, 以降 (prev+overdue)*EF*1.3, EF +0.15
    * ========================================================= */
-  function calculateSM2(card, score, todayStr) {
+  function calculateSchedule(card, grade, todayStr) {
     var prevRep = Number(card.repetition || 0);
     var prevInterval = Number(card.interval || 0);
     var prevEF = Number(card.efactor || 2.5);
@@ -2172,52 +2160,67 @@
     }
 
     var newRep = prevRep;
-    var newInterval = 1;
-    var newEF = prevEF + (0.1 - (5 - score) * (0.08 + (5 - score) * 0.02));
-    if (newEF < 1.3) newEF = 1.3;
-    newEF = Math.round(newEF * 100) / 100;
+    var newInterval = 0;
+    var newEF = prevEF;
 
-    if (score < 3) {
+    if (grade === 1) {
+      newEF = Math.max(1.3, prevEF - 0.20);
       newRep = 0;
       newInterval = 0;
-    } else {
+    } else if (grade === 2) {
+      newEF = Math.max(1.3, prevEF - 0.15);
       if (prevRep === 0) {
-        newInterval = (score === 5) ? 3 : 1;
+        newInterval = 1;
       } else if (prevRep === 1) {
-        var baseSecond = (score === 5) ? 7 : 6;
-        if (score >= 4 && overdueDays > 0) {
-          var bonusSecond = Math.round((prevInterval + overdueDays * 0.5) * newEF);
-          newInterval = Math.max(baseSecond, bonusSecond);
-        } else {
-          newInterval = baseSecond;
-        }
+        newInterval = Math.max(3, prevInterval + 1);
       } else {
-        var effectiveInterval = prevInterval;
-        if (score === 5 && overdueDays > 0) {
-          effectiveInterval = prevInterval + overdueDays;
-        } else if (score === 4 && overdueDays > 0) {
-          effectiveInterval = prevInterval + Math.round(overdueDays * 0.5);
-        }
-        var mult = (score === 3) ? Math.max(1.2, newEF * 0.85) : newEF;
-        newInterval = Math.max(prevInterval + 1, Math.round(effectiveInterval * mult));
+        newInterval = Math.max(prevInterval + 1, Math.round(prevInterval * 1.2));
       }
-      if (newInterval > 365) newInterval = 365;
+      newRep = prevRep + 1;
+    } else if (grade === 3) {
+      newEF = prevEF;
+      if (prevRep === 0) {
+        newInterval = 1;
+      } else if (prevRep === 1) {
+        var baseGood = 6;
+        var bonusGood = overdueDays > 0 ? Math.round((prevInterval + overdueDays * 0.5) * newEF) : baseGood;
+        newInterval = Math.max(baseGood, bonusGood);
+      } else {
+        var effGood = prevInterval + overdueDays * 0.5;
+        newInterval = Math.max(prevInterval + 1, Math.round(effGood * newEF));
+      }
+      newRep = prevRep + 1;
+    } else {
+      newEF = Math.min(3.0, prevEF + 0.15);
+      if (prevRep === 0) {
+        newInterval = 4;
+      } else if (prevRep === 1) {
+        var baseEasy = 10;
+        var bonusEasy = overdueDays > 0 ? Math.round((prevInterval + overdueDays) * newEF * 1.3) : baseEasy;
+        newInterval = Math.max(baseEasy, bonusEasy);
+      } else {
+        var effEasy = prevInterval + overdueDays;
+        newInterval = Math.max(prevInterval + 2, Math.round(effEasy * newEF * 1.3));
+      }
       newRep = prevRep + 1;
     }
 
-    var nextDate = (score < 3) ? todayStr : addDaysToDateString(todayStr, newInterval);
+    newEF = Math.round(newEF * 100) / 100;
+    if (newInterval > 365) newInterval = 365;
+
+    var nextDate = (grade === 1) ? todayStr : addDaysToDateString(todayStr, newInterval);
     return {
       repetition: newRep,
       interval: newInterval,
       efactor: newEF,
       nextReviewDate: nextDate,
-      lastScore: score,
+      lastScore: grade,
       lastReviewedAt: new Date().toISOString()
     };
   }
 
   /* =========================================================
-   * 5. Canvas APIによる画像自動圧縮・クリップボード貼付対応
+   * 5. 画像自動圧縮（長辺1600px / JPEG 0.88）
    * ========================================================= */
   function compressImageFile(file) {
     return new Promise(function(resolve, reject) {
@@ -2266,21 +2269,31 @@
   /* =========================================================
    * 6. アプリケーション状態
    * ========================================================= */
+  function createEmptyDraft() {
+    return {
+      draftId: 'draft_' + Date.now().toString(36) + '_' + Math.random().toString(36).substring(2, 7),
+      frontText: '',
+      backText: '',
+      frontImages: [],
+      backImages: []
+    };
+  }
+
   var state = {
     cards: [],
     tags: DEFAULT_TAGS.slice(),
     theme: 'light',
     dueOrderMode: 'shuffle',
     regInitialTiming: 'today',
-    regFrontImages: [],
-    regBackImages: [],
+    selectedRegTag: '',
+    regDrafts: [createEmptyDraft()],
+    activeDraftIndex: 0,
     editingCardId: null,
     editFrontImages: [],
     editBackImages: [],
     reviewQueue: [],
     reviewIndex: 0,
-    reviewHistory: [],
-    reviewUpdateSchedule: true
+    reviewHistory: []
   };
 
   /* =========================================================
@@ -2335,23 +2348,42 @@
     img.style.transform = isLightboxZoomed ? 'scale(1.85)' : 'scale(1)';
   }
 
+  function escapeHtml(str) {
+    return String(str || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
   /* =========================================================
-   * 8. タグ選択肢・チップバー・各画面の描画更新
+   * 8. タグ管理（デフォルト空・未分類対応）
    * ========================================================= */
   function renderRegTagChipBar() {
     var chipBar = document.getElementById('regTagChipBar');
     var regSelect = document.getElementById('regTagSelect');
     if (!chipBar || !regSelect) return;
 
-    var activeTag = regSelect.value || state.tags[0];
     chipBar.innerHTML = '';
+
+    var noneBtn = document.createElement('button');
+    noneBtn.type = 'button';
+    noneBtn.className = 'tag-pill-btn' + (!state.selectedRegTag ? ' active' : '');
+    noneBtn.textContent = 'なし（未分類）';
+    noneBtn.addEventListener('click', function() {
+      state.selectedRegTag = '';
+      regSelect.value = '';
+      renderRegTagChipBar();
+    });
+    chipBar.appendChild(noneBtn);
 
     state.tags.forEach(function(tag) {
       var btn = document.createElement('button');
       btn.type = 'button';
-      btn.className = 'tag-pill-btn' + (tag === activeTag ? ' active' : '');
+      btn.className = 'tag-pill-btn' + (tag === state.selectedRegTag ? ' active' : '');
       btn.textContent = tag;
       btn.addEventListener('click', function() {
+        state.selectedRegTag = tag;
         regSelect.value = tag;
         renderRegTagChipBar();
       });
@@ -2363,18 +2395,15 @@
     var regSelect = document.getElementById('regTagSelect');
     var editSelect = document.getElementById('editTagSelect');
     var listFilter = document.getElementById('listTagFilter');
-    var freeSelect = document.getElementById('freeReviewTagSelect');
 
-    var currentReg = regSelect.value;
     var currentList = listFilter.value;
-    var currentFree = freeSelect.value;
 
-    regSelect.innerHTML = '';
-    editSelect.innerHTML = '';
-    listFilter.innerHTML = '<option value="all">すべての科目タグ</option>';
-    freeSelect.innerHTML = '<option value="all">すべての科目タグ</option>';
+    regSelect.innerHTML = '<option value="">未分類</option>';
+    editSelect.innerHTML = '<option value="未分類">未分類</option>';
+    listFilter.innerHTML = '<option value="all">すべての科目タグ</option><option value="未分類">未分類</option>';
 
     state.tags.forEach(function(tag) {
+      if (tag === UNTAGGED_LABEL) return;
       var opt1 = document.createElement('option');
       opt1.value = tag;
       opt1.textContent = tag;
@@ -2389,20 +2418,17 @@
       opt3.value = tag;
       opt3.textContent = tag;
       listFilter.appendChild(opt3);
-
-      var opt4 = document.createElement('option');
-      opt4.value = tag;
-      opt4.textContent = tag;
-      freeSelect.appendChild(opt4);
     });
 
-    if (currentReg && state.tags.indexOf(currentReg) >= 0) regSelect.value = currentReg;
+    regSelect.value = state.selectedRegTag || '';
     if (currentList) listFilter.value = currentList;
-    if (currentFree) freeSelect.value = currentFree;
 
     renderRegTagChipBar();
   }
 
+  /* =========================================================
+   * 9. ホーム画面・エビングハウス忘却曲線・7日間予測
+   * ========================================================= */
   function getDueCards(todayStr) {
     return state.cards
       .filter(function(c) { return c.nextReviewDate <= todayStr; })
@@ -2441,6 +2467,138 @@
     });
   }
 
+  function estimateCardRetention(card, todayStr) {
+    var s = Math.max(0.8, Number(card.interval || 0) || 0.8);
+    var elapsed = 0;
+    if (card.lastReviewedAt) {
+      var lastDateStr = getLocalDateString(new Date(card.lastReviewedAt));
+      elapsed = Math.max(0, diffDaysBetween(todayStr, lastDateStr));
+    } else if (card.nextReviewDate) {
+      var scheduledStart = addDaysToDateString(card.nextReviewDate, -Math.max(1, Number(card.interval || 1)));
+      elapsed = Math.max(0, diffDaysBetween(todayStr, scheduledStart));
+    }
+    var r = Math.exp(-elapsed / (s * 4.5));
+    return Math.max(0.05, Math.min(1, r));
+  }
+
+  function renderForgettingCurveAndForecast(todayStr) {
+    var svg = document.getElementById('forgettingCurveSvg');
+    var avgBadge = document.getElementById('avgRetentionBadge');
+    var forecastEl = document.getElementById('weekForecastStrip');
+    if (!svg || !forecastEl) return;
+
+    var total = state.cards.length;
+    var sumR = 0;
+    var initCards = [];
+    var learnCards = [];
+    var masterCards = [];
+
+    state.cards.forEach(function(c) {
+      var r = estimateCardRetention(c, todayStr);
+      sumR += r;
+      var iv = Number(c.interval || 0);
+      if (iv > 21) masterCards.push(c);
+      else if (iv >= 4) learnCards.push(c);
+      else initCards.push(c);
+    });
+
+    if (total === 0) {
+      avgBadge.textContent = '平均保持率 --%';
+    } else {
+      avgBadge.textContent = '現在保持率 ' + Math.round((sumR / total) * 100) + '%';
+    }
+
+    var avgS = function(arr, fallbackS) {
+      if (arr.length === 0) return fallbackS;
+      var sum = 0;
+      arr.forEach(function(c) { sum += Math.max(1, Number(c.interval || 1)); });
+      return sum / arr.length;
+    };
+
+    var sInit = avgS(initCards, 1.5);
+    var sLearn = avgS(learnCards, 10);
+    var sMaster = avgS(masterCards, 45);
+
+    var x0 = 32, x1 = 308, yTop = 14, yBot = 122;
+    var w = x1 - x0;
+    var h = yBot - yTop;
+    var maxDays = 30;
+
+    function buildCurvePath(stabilityDays) {
+      var tau = stabilityDays * 3.2;
+      var pts = [];
+      for (var d = 0; d <= maxDays; d += 1) {
+        var ret = Math.exp(-d / tau);
+        var px = x0 + (d / maxDays) * w;
+        var py = yBot - ret * h;
+        pts.push((d === 0 ? 'M ' : 'L ') + px.toFixed(1) + ' ' + py.toFixed(1));
+      }
+      return pts.join(' ');
+    }
+
+    var y80 = (yBot - 0.8 * h).toFixed(1);
+    var y50 = (yBot - 0.5 * h).toFixed(1);
+
+    var svgHtml = '';
+    svgHtml += '<line x1="' + x0 + '" y1="' + yTop + '" x2="' + x1 + '" y2="' + yTop + '" stroke="var(--border-color)" stroke-width="1" />';
+    svgHtml += '<line x1="' + x0 + '" y1="' + y80 + '" x2="' + x1 + '" y2="' + y80 + '" stroke="var(--border-strong)" stroke-width="1" stroke-dasharray="3 3" />';
+    svgHtml += '<line x1="' + x0 + '" y1="' + y50 + '" x2="' + x1 + '" y2="' + y50 + '" stroke="var(--border-color)" stroke-width="1" />';
+    svgHtml += '<line x1="' + x0 + '" y1="' + yBot + '" x2="' + x1 + '" y2="' + yBot + '" stroke="var(--border-color)" stroke-width="1" />';
+
+    svgHtml += '<text x="2" y="' + (yTop + 4) + '" font-size="9.5" font-weight="700" fill="var(--text-muted)">100%</text>';
+    svgHtml += '<text x="6" y="' + (Number(y80) + 3) + '" font-size="9.5" font-weight="700" fill="var(--accent-text)">80%</text>';
+    svgHtml += '<text x="6" y="' + (Number(y50) + 3) + '" font-size="9.5" font-weight="700" fill="var(--text-muted)">50%</text>';
+    svgHtml += '<text x="12" y="' + (yBot + 3) + '" font-size="9.5" font-weight="700" fill="var(--text-muted)">0%</text>';
+
+    [0, 7, 14, 21, 30].forEach(function(dayVal) {
+      var gx = (x0 + (dayVal / maxDays) * w).toFixed(1);
+      svgHtml += '<line x1="' + gx + '" y1="' + yTop + '" x2="' + gx + '" y2="' + yBot + '" stroke="var(--border-color)" stroke-width="0.7" />';
+      svgHtml += '<text x="' + gx + '" y="' + (yBot + 15) + '" font-size="9.5" font-weight="700" fill="var(--text-muted)" text-anchor="middle">' + dayVal + '日</text>';
+    });
+
+    svgHtml += '<path d="' + buildCurvePath(sInit) + '" fill="none" stroke="#f59e0b" stroke-width="2.3" stroke-linecap="round" />';
+    svgHtml += '<path d="' + buildCurvePath(sLearn) + '" fill="none" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" />';
+    svgHtml += '<path d="' + buildCurvePath(sMaster) + '" fill="none" stroke="#16a34a" stroke-width="2.7" stroke-linecap="round" />';
+
+    state.cards.slice(0, 40).forEach(function(c) {
+      var iv = Number(c.interval || 0);
+      var sGroup = iv > 21 ? sMaster : (iv >= 4 ? sLearn : sInit);
+      var dotColor = iv > 21 ? '#16a34a' : (iv >= 4 ? '#0284c7' : '#f59e0b');
+      var elapsed = 0;
+      if (c.lastReviewedAt) {
+        elapsed = Math.max(0, Math.min(maxDays, diffDaysBetween(todayStr, getLocalDateString(new Date(c.lastReviewedAt)))));
+      }
+      var ret = Math.exp(-elapsed / (sGroup * 3.2));
+      var cx = (x0 + (elapsed / maxDays) * w).toFixed(1);
+      var cy = (yBot - ret * h).toFixed(1);
+      svgHtml += '<circle cx="' + cx + '" cy="' + cy + '" r="3.2" fill="' + dotColor + '" stroke="var(--bg-surface)" stroke-width="1" />';
+    });
+
+    svg.innerHTML = svgHtml;
+
+    forecastEl.innerHTML = '';
+    var weekDays = ['日', '月', '火', '水', '木', '金', '土'];
+    for (var offset = 0; offset < 7; offset++) {
+      var targetDateStr = addDaysToDateString(todayStr, offset);
+      var count = 0;
+      if (offset === 0) {
+        count = state.cards.filter(function(c) { return c.nextReviewDate <= todayStr; }).length;
+      } else {
+        count = state.cards.filter(function(c) { return c.nextReviewDate === targetDateStr; }).length;
+      }
+      var p = targetDateStr.split('-');
+      var dObj = new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]));
+      var dayLabel = offset === 0 ? '今日' : (offset === 1 ? '明日' : Number(p[2]) + '日(' + weekDays[dObj.getDay()] + ')');
+
+      var box = document.createElement('div');
+      box.className = 'forecast-day-box' + (offset === 0 ? ' today-highlight' : '');
+      box.innerHTML =
+        '<div class="forecast-day-label">' + dayLabel + '</div>' +
+        '<div class="forecast-day-count">' + count + '</div>';
+      forecastEl.appendChild(box);
+    }
+  }
+
   function renderHomeView() {
     var todayStr = getLocalDateString();
     var parts = todayStr.split('-');
@@ -2474,8 +2632,8 @@
     }
 
     var total = state.cards.length;
-    var mastered = state.cards.filter(function(c) { return (c.interval || 0) > 30; }).length;
-    var learning = state.cards.filter(function(c) { return (c.interval || 0) >= 1 && (c.interval || 0) <= 30; }).length;
+    var mastered = state.cards.filter(function(c) { return (c.interval || 0) > 21; }).length;
+    var learning = state.cards.filter(function(c) { return (c.interval || 0) >= 4 && (c.interval || 0) <= 21; }).length;
     var initial = total - mastered - learning;
 
     var masteredPct = total > 0 ? Math.round((mastered / total) * 100) : 0;
@@ -2501,11 +2659,16 @@
     if (total === 0) {
       subjContainer.innerHTML = '<div style="font-size:12px; color:var(--text-muted); text-align:center; padding:12px;">カード未登録</div>';
     } else {
-      state.tags.forEach(function(tag) {
-        var tagCards = state.cards.filter(function(c) { return c.tag === tag; });
+      var allUsedTags = state.tags.slice();
+      state.cards.forEach(function(c) {
+        var t = c.tag || UNTAGGED_LABEL;
+        if (allUsedTags.indexOf(t) < 0) allUsedTags.push(t);
+      });
+      allUsedTags.forEach(function(tag) {
+        var tagCards = state.cards.filter(function(c) { return (c.tag || UNTAGGED_LABEL) === tag; });
         if (tagCards.length === 0) return;
-        var tMastered = tagCards.filter(function(c) { return (c.interval || 0) > 30; }).length;
-        var tLearning = tagCards.filter(function(c) { return (c.interval || 0) >= 1 && (c.interval || 0) <= 30; }).length;
+        var tMastered = tagCards.filter(function(c) { return (c.interval || 0) > 21; }).length;
+        var tLearning = tagCards.filter(function(c) { return (c.interval || 0) >= 4 && (c.interval || 0) <= 21; }).length;
         var mW = Math.round((tMastered / tagCards.length) * 100);
         var lW = Math.round((tLearning / tagCards.length) * 100);
 
@@ -2524,37 +2687,13 @@
       });
     }
 
-    updateFreeReviewCount();
-  }
-
-  function getFilteredFreeReviewCards() {
-    var tag = document.getElementById('freeReviewTagSelect').value;
-    var filter = document.getElementById('freeReviewFilterSelect').value;
-    return state.cards.filter(function(c) {
-      if (tag !== 'all' && c.tag !== tag) return false;
-      if (filter === 'weak') {
-        var isLowScore = (c.lastScore !== null && c.lastScore !== undefined && c.lastScore <= 2);
-        var isShortInterval = (c.interval || 0) < 7;
-        return isLowScore || isShortInterval;
-      }
-      if (filter === 'unmastered') {
-        return (c.interval || 0) <= 30;
-      }
-      return true;
-    });
-  }
-
-  function updateFreeReviewCount() {
-    var matched = getFilteredFreeReviewCards();
-    document.getElementById('freeReviewMatchCount').textContent = String(matched.length);
-    document.getElementById('startFreeReviewBtn').disabled = (matched.length === 0);
+    renderForgettingCurveAndForecast(todayStr);
   }
 
   /* =========================================================
-   * 9. カード登録・画像ペースト・ドラッグ＆ドロップ・サムネイル管理
+   * 10. 複数枚カード一括登録（動的ドラフト枠）＆画像処理
    * ========================================================= */
-  function renderThumbStrip(containerId, imagesArray, onRemoveIndex) {
-    var container = document.getElementById(containerId);
+  function renderThumbStripElement(container, imagesArray, onRemoveIndex) {
     container.innerHTML = '';
     imagesArray.forEach(function(dataUrl, idx) {
       var item = document.createElement('div');
@@ -2651,7 +2790,7 @@
     return false;
   }
 
-  function readClipboardImageButton(targetArray, renderFn, sideLabel, focusTextareaId) {
+  function readClipboardImageToTarget(targetArray, renderFn, sideLabel, fallbackTextarea) {
     if (navigator.clipboard && typeof navigator.clipboard.read === 'function') {
       navigator.clipboard.read().then(function(clipboardItems) {
         var blobs = [];
@@ -2680,82 +2819,251 @@
           handleFilesSelection(blobs, targetArray, renderFn, sideLabel + 'にスクショを貼り付けました');
         });
       }).catch(function() {
-        var ta = focusTextareaId ? document.getElementById(focusTextareaId) : null;
-        if (ta) ta.focus();
-        showToast('テキスト欄で Ctrl+V / ⌘+V または「ペースト」してください');
+        if (fallbackTextarea) fallbackTextarea.focus();
+        showToast('テキスト欄で Ctrl+V / ⌘+V またはペーストしてください');
       });
     } else {
-      var ta = focusTextareaId ? document.getElementById(focusTextareaId) : null;
-      if (ta) ta.focus();
-      showToast('テキスト欄で Ctrl+V / ⌘+V または「ペースト」してください');
+      if (fallbackTextarea) fallbackTextarea.focus();
+      showToast('テキスト欄で Ctrl+V / ⌘+V またはペーストしてください');
     }
   }
 
-  function refreshRegThumbs() {
-    renderThumbStrip('regFrontThumbStrip', state.regFrontImages, function(idx) {
-      state.regFrontImages.splice(idx, 1);
-      refreshRegThumbs();
-    });
-    renderThumbStrip('regBackThumbStrip', state.regBackImages, function(idx) {
-      state.regBackImages.splice(idx, 1);
-      refreshRegThumbs();
-    });
-    var frontSlot = document.getElementById('regFrontSlotCount');
-    var backSlot = document.getElementById('regBackSlotCount');
-    if (frontSlot) frontSlot.textContent = '画像 ' + state.regFrontImages.length + ' / ' + MAX_IMAGES_PER_SIDE;
-    if (backSlot) backSlot.textContent = '画像 ' + state.regBackImages.length + ' / ' + MAX_IMAGES_PER_SIDE;
+  function updateSaveButtonCountLabel() {
+    var btnLabel = document.getElementById('saveNewCardBtnLabel');
+    if (!btnLabel) return;
+    var count = state.regDrafts.length;
+    btnLabel.textContent = count > 1
+      ? 'カードをまとめて保存する（' + count + '枚）'
+      : 'カードを保存する（1枚）';
   }
 
-  function saveNewCard() {
-    var tag = document.getElementById('regTagSelect').value || state.tags[0];
-    var frontText = document.getElementById('regFrontText').value.trim();
-    var backText = document.getElementById('regBackText').value.trim();
+  function renderRegDrafts() {
+    var listEl = document.getElementById('regDraftsList');
+    if (!listEl) return;
+    listEl.innerHTML = '';
 
-    if (!frontText && state.regFrontImages.length === 0) {
-      showToast('表面（問題）のテキストまたは画像を入力してください');
+    state.regDrafts.forEach(function(draft, dIdx) {
+      var wrapper = document.createElement('div');
+      wrapper.className = 'draft-card-wrapper';
+
+      var topRow = document.createElement('div');
+      topRow.className = 'draft-card-top';
+      var titleSpan = document.createElement('span');
+      titleSpan.className = 'draft-card-num';
+      titleSpan.textContent = 'カード #' + (dIdx + 1);
+      topRow.appendChild(titleSpan);
+
+      if (state.regDrafts.length > 1) {
+        var removeDraftBtn = document.createElement('button');
+        removeDraftBtn.type = 'button';
+        removeDraftBtn.className = 'icon-btn';
+        removeDraftBtn.style.height = '28px';
+        removeDraftBtn.style.fontSize = '12px';
+        removeDraftBtn.textContent = '✕ この枠を削除';
+        removeDraftBtn.addEventListener('click', function() {
+          state.regDrafts.splice(dIdx, 1);
+          if (state.activeDraftIndex >= state.regDrafts.length) {
+            state.activeDraftIndex = Math.max(0, state.regDrafts.length - 1);
+          }
+          renderRegDrafts();
+        });
+        topRow.appendChild(removeDraftBtn);
+      }
+      wrapper.appendChild(topRow);
+
+      var grid = document.createElement('div');
+      grid.className = 'split-editor-grid';
+
+      function buildSideBlock(isFront) {
+        var sideImages = isFront ? draft.frontImages : draft.backImages;
+        var sideLabel = isFront ? '表面（問題）' : '裏面（解答・解説）';
+        var block = document.createElement('div');
+        block.className = 'editor-block';
+
+        var header = document.createElement('div');
+        header.className = 'editor-block-header';
+        var badge = document.createElement('span');
+        badge.className = 'editor-badge ' + (isFront ? 'front' : 'back');
+        badge.textContent = sideLabel;
+        var slotCounter = document.createElement('span');
+        slotCounter.className = 'editor-slot-counter';
+        slotCounter.textContent = '画像 ' + sideImages.length + ' / ' + MAX_IMAGES_PER_SIDE;
+        header.appendChild(badge);
+        header.appendChild(slotCounter);
+
+        var ta = document.createElement('textarea');
+        ta.className = 'form-textarea';
+        ta.placeholder = isFront ? '問題文を入力、またはスクショをペースト' : '正答・解説を入力、またはスクショをペースト';
+        ta.value = isFront ? draft.frontText : draft.backText;
+        ta.addEventListener('focus', function() {
+          state.activeDraftIndex = dIdx;
+        });
+        ta.addEventListener('input', function() {
+          if (isFront) draft.frontText = ta.value;
+          else draft.backText = ta.value;
+        });
+
+        var thumbStrip = document.createElement('div');
+        thumbStrip.className = 'thumb-strip';
+
+        var refreshThisSide = function() {
+          slotCounter.textContent = '画像 ' + sideImages.length + ' / ' + MAX_IMAGES_PER_SIDE;
+          renderThumbStripElement(thumbStrip, sideImages, function(removeIdx) {
+            sideImages.splice(removeIdx, 1);
+            refreshThisSide();
+          });
+        };
+
+        ta.addEventListener('paste', function(e) {
+          state.activeDraftIndex = dIdx;
+          extractImagesFromClipboardEvent(e, sideImages, refreshThisSide, 'カード#' + (dIdx + 1) + ' ' + sideLabel);
+        });
+
+        var actionBar = document.createElement('div');
+        actionBar.className = 'media-action-bar';
+
+        var camLabel = document.createElement('label');
+        camLabel.className = 'upload-trigger-btn';
+        camLabel.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg><span>カメラ</span>';
+        var camInput = document.createElement('input');
+        camInput.type = 'file';
+        camInput.accept = 'image/*';
+        camInput.setAttribute('capture', 'environment');
+        camInput.style.display = 'none';
+        camInput.addEventListener('change', function(e) {
+          handleFilesSelection(e.target.files, sideImages, refreshThisSide);
+          e.target.value = '';
+        });
+        camLabel.appendChild(camInput);
+
+        var libLabel = document.createElement('label');
+        libLabel.className = 'upload-trigger-btn';
+        libLabel.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg><span>写真選択</span>';
+        var libInput = document.createElement('input');
+        libInput.type = 'file';
+        libInput.accept = 'image/*';
+        libInput.multiple = true;
+        libInput.style.display = 'none';
+        libInput.addEventListener('change', function(e) {
+          handleFilesSelection(e.target.files, sideImages, refreshThisSide);
+          e.target.value = '';
+        });
+        libLabel.appendChild(libInput);
+
+        var pasteBtn = document.createElement('button');
+        pasteBtn.type = 'button';
+        pasteBtn.className = 'upload-trigger-btn';
+        pasteBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><span>スクショ貼付</span>';
+        pasteBtn.addEventListener('click', function() {
+          state.activeDraftIndex = dIdx;
+          readClipboardImageToTarget(sideImages, refreshThisSide, 'カード#' + (dIdx + 1) + ' ' + sideLabel, ta);
+        });
+
+        actionBar.appendChild(camLabel);
+        actionBar.appendChild(libLabel);
+        actionBar.appendChild(pasteBtn);
+
+        block.addEventListener('dragover', function(e) {
+          e.preventDefault();
+          block.classList.add('drag-over');
+        });
+        block.addEventListener('dragleave', function() {
+          block.classList.remove('drag-over');
+        });
+        block.addEventListener('drop', function(e) {
+          e.preventDefault();
+          block.classList.remove('drag-over');
+          if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+            handleFilesSelection(e.dataTransfer.files, sideImages, refreshThisSide, 'カード#' + (dIdx + 1) + ' ' + sideLabel + 'に画像を追加しました');
+          }
+        });
+
+        refreshThisSide();
+
+        block.appendChild(header);
+        block.appendChild(ta);
+        block.appendChild(actionBar);
+        block.appendChild(thumbStrip);
+        return block;
+      }
+
+      grid.appendChild(buildSideBlock(true));
+      grid.appendChild(buildSideBlock(false));
+      wrapper.appendChild(grid);
+      listEl.appendChild(wrapper);
+    });
+
+    updateSaveButtonCountLabel();
+  }
+
+  function saveAllDraftCards() {
+    var validDrafts = [];
+    for (var i = 0; i < state.regDrafts.length; i++) {
+      var d = state.regDrafts[i];
+      var ft = (d.frontText || '').trim();
+      var bt = (d.backText || '').trim();
+      var hasFront = ft.length > 0 || d.frontImages.length > 0;
+      var hasBack = bt.length > 0 || d.backImages.length > 0;
+
+      if (!hasFront && !hasBack) {
+        continue;
+      }
+      if (!hasFront || !hasBack) {
+        showToast('カード #' + (i + 1) + ' の表面または裏面が未入力です');
+        return;
+      }
+      validDrafts.push({
+        frontText: ft,
+        backText: bt,
+        frontImages: d.frontImages.slice(),
+        backImages: d.backImages.slice()
+      });
+    }
+
+    if (validDrafts.length === 0) {
+      showToast('問題と解答を入力してください');
       return;
     }
-    if (!backText && state.regBackImages.length === 0) {
-      showToast('裏面（解答・解説）のテキストまたは画像を入力してください');
-      return;
-    }
 
+    var tag = state.selectedRegTag || UNTAGGED_LABEL;
     var todayStr = getLocalDateString();
     var tomorrowStr = addDaysToDateString(todayStr, 1);
     var isTodayInit = (state.regInitialTiming === 'today');
     var initialReviewDate = isTodayInit ? todayStr : tomorrowStr;
 
-    var newCard = {
-      id: generateId(),
-      tag: tag,
-      frontText: frontText,
-      frontImages: state.regFrontImages.slice(),
-      backText: backText,
-      backImages: state.regBackImages.slice(),
-      createdAt: new Date().toISOString(),
-      nextReviewDate: initialReviewDate,
-      interval: 0,
-      repetition: 0,
-      efactor: 2.5,
-      lastScore: null
-    };
+    var createdCards = validDrafts.map(function(vd) {
+      return {
+        id: generateId(),
+        tag: tag,
+        frontText: vd.frontText,
+        frontImages: vd.frontImages,
+        backText: vd.backText,
+        backImages: vd.backImages,
+        createdAt: new Date().toISOString(),
+        nextReviewDate: initialReviewDate,
+        interval: 0,
+        repetition: 0,
+        efactor: 2.5,
+        lastScore: null
+      };
+    });
 
-    dbPutCard(newCard).then(function() {
-      state.cards.push(newCard);
-      document.getElementById('regFrontText').value = '';
-      document.getElementById('regBackText').value = '';
-      state.regFrontImages = [];
-      state.regBackImages = [];
-      refreshRegThumbs();
+    Promise.all(createdCards.map(function(c) {
+      state.cards.push(c);
+      return dbPutCard(c);
+    })).then(function() {
+      state.regDrafts = [createEmptyDraft()];
+      state.activeDraftIndex = 0;
+      renderRegDrafts();
       renderAllViews();
-      showToast('カードを保存しました（初回：' + (isTodayInit ? '今日 ' : '明日 ') + initialReviewDate + '）');
+      showToast(createdCards.length + '枚のカードを保存しました（初回：' + (isTodayInit ? '今日' : '明日') + '）');
     });
   }
 
   /* =========================================================
-   * 10. 復習実行画面（フルスクリーン没入モード＆1つ前に戻る）
+   * 11. 復習実行画面（4段階評価・中断しても当日分に残る）
    * ========================================================= */
-  function startReviewSession(cardsQueue, updateScheduleFlag) {
+  function startReviewSession(cardsQueue) {
     if (!cardsQueue || cardsQueue.length === 0) {
       showToast('対象の復習カードがありません');
       return;
@@ -2763,7 +3071,6 @@
     state.reviewQueue = cardsQueue.map(function(c) { return c; });
     state.reviewIndex = 0;
     state.reviewHistory = [];
-    state.reviewUpdateSchedule = updateScheduleFlag;
 
     document.getElementById('reviewOverlay').classList.add('active');
     renderCurrentReviewCard();
@@ -2784,7 +3091,7 @@
     document.getElementById('reviewCounterText').textContent = (state.reviewIndex + 1) + ' / ' + total;
     document.getElementById('undoReviewBtn').disabled = (state.reviewHistory.length === 0);
 
-    document.getElementById('reviewCardTag').textContent = card.tag;
+    document.getElementById('reviewCardTag').textContent = card.tag || UNTAGGED_LABEL;
     var diff = diffDaysBetween(card.nextReviewDate, todayStr);
     var statusLabel = '';
     if (diff < 0) statusLabel = '期限超過 (' + Math.abs(diff) + '日)';
@@ -2792,7 +3099,7 @@
     else statusLabel = '次回: ' + card.nextReviewDate;
 
     document.getElementById('reviewCardMetaInfo').textContent =
-      statusLabel + ' ｜ 間隔: ' + (card.interval || 0) + '日';
+      statusLabel + ' ｜ 間隔: ' + (card.interval || 0) + '日 ｜ EF: ' + Number(card.efactor || 2.5).toFixed(2);
 
     var frontTextEl = document.getElementById('reviewFrontText');
     frontTextEl.textContent = card.frontText || '';
@@ -2836,23 +3143,17 @@
       backImgsEl.appendChild(wrap);
     });
 
-    for (var s = 0; s <= 5; s++) {
-      var sim = calculateSM2(card, s, todayStr);
-      var labelEl = document.getElementById('rateNext' + s);
-      if (s < 3) {
-        labelEl.textContent = '再出題(今日)';
-      } else if (!state.reviewUpdateSchedule) {
-        labelEl.textContent = '変更なし';
+    for (var g = 1; g <= 4; g++) {
+      var sim = calculateSchedule(card, g, todayStr);
+      var labelEl = document.getElementById('rateNext' + g);
+      if (g === 1) {
+        labelEl.textContent = '当日再確認';
       } else if (sim.interval === 1) {
         labelEl.textContent = '次回: 明日';
       } else {
         labelEl.textContent = '次回: ' + sim.interval + '日後';
       }
     }
-
-    document.getElementById('ratingModeNotice').textContent = state.reviewUpdateSchedule
-      ? '定着度を 0〜5 で選択'
-      : 'フリー練習（スケジュール変更なし）';
 
     document.getElementById('reviewBackBox').style.display = 'none';
     document.getElementById('showAnswerBtn').style.display = 'block';
@@ -2870,12 +3171,12 @@
     }, 50);
   }
 
-  function submitRating(score) {
+  function submitRating(grade) {
     var card = state.reviewQueue[state.reviewIndex];
     if (!card) return;
 
     var snapshot = JSON.parse(JSON.stringify(card));
-    var requeued = (score < 3);
+    var requeued = (grade === 1);
 
     state.reviewHistory.push({
       index: state.reviewIndex,
@@ -2887,35 +3188,27 @@
       state.reviewQueue.push(card);
     }
 
-    if (state.reviewUpdateSchedule) {
-      var todayStr = getLocalDateString();
-      var updated = calculateSM2(card, score, todayStr);
-      card.repetition = updated.repetition;
-      card.interval = updated.interval;
-      card.efactor = updated.efactor;
-      card.nextReviewDate = updated.nextReviewDate;
-      card.lastScore = updated.lastScore;
-      card.lastReviewedAt = updated.lastReviewedAt;
+    var todayStr = getLocalDateString();
+    var updated = calculateSchedule(card, grade, todayStr);
+    card.repetition = updated.repetition;
+    card.interval = updated.interval;
+    card.efactor = updated.efactor;
+    card.nextReviewDate = updated.nextReviewDate;
+    card.lastScore = updated.lastScore;
+    card.lastReviewedAt = updated.lastReviewedAt;
 
-      var idxInAll = state.cards.findIndex(function(c) { return c.id === card.id; });
-      if (idxInAll >= 0) {
-        state.cards[idxInAll] = card;
-      }
+    var idxInAll = state.cards.findIndex(function(c) { return c.id === card.id; });
+    if (idxInAll >= 0) {
+      state.cards[idxInAll] = card;
+    }
 
-      dbPutCard(card).then(function() {
-        if (requeued) {
-          showToast('要再確認：本日の復習に残しました');
-        }
-        state.reviewIndex += 1;
-        renderCurrentReviewCard();
-      });
-    } else {
+    dbPutCard(card).then(function() {
       if (requeued) {
-        showToast('セッション末尾に再追加しました');
+        showToast('もう一度：本日の復習末尾に再追加しました');
       }
       state.reviewIndex += 1;
       renderCurrentReviewCard();
-    }
+    });
   }
 
   function undoPreviousReview() {
@@ -2953,20 +3246,12 @@
   function finishReviewSession() {
     document.getElementById('reviewOverlay').classList.remove('active');
     renderAllViews();
-    showToast('復習セッションが完了しました！');
+    showToast('本日の復習セッションが完了しました！');
   }
 
   /* =========================================================
-   * 11. カード一覧・検索・編集モーダル
+   * 12. カード一覧・検索・編集モーダル
    * ========================================================= */
-  function escapeHtml(str) {
-    return String(str || '')
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;');
-  }
-
   function renderCardListView() {
     var query = document.getElementById('listSearchInput').value.trim().toLowerCase();
     var tagFilter = document.getElementById('listTagFilter').value;
@@ -2975,12 +3260,13 @@
     var todayStr = getLocalDateString();
 
     var filtered = state.cards.filter(function(c) {
-      if (tagFilter !== 'all' && c.tag !== tagFilter) return false;
+      var cardTag = c.tag || UNTAGGED_LABEL;
+      if (tagFilter !== 'all' && cardTag !== tagFilter) return false;
       if (statusFilter === 'due' && !(c.nextReviewDate <= todayStr)) return false;
-      if (statusFilter === 'learning' && !((c.interval || 0) >= 1 && (c.interval || 0) <= 30)) return false;
-      if (statusFilter === 'mastered' && !((c.interval || 0) > 30)) return false;
+      if (statusFilter === 'learning' && !((c.interval || 0) >= 4 && (c.interval || 0) <= 21)) return false;
+      if (statusFilter === 'mastered' && !((c.interval || 0) > 21)) return false;
       if (query) {
-        var hay = ((c.frontText || '') + ' ' + (c.backText || '') + ' ' + (c.tag || '')).toLowerCase();
+        var hay = ((c.frontText || '') + ' ' + (c.backText || '') + ' ' + cardTag).toLowerCase();
         if (hay.indexOf(query) < 0) return false;
       }
       return true;
@@ -3026,7 +3312,7 @@
       } else if (diff === 0) {
         dueChipClass = 'today';
         dueChipLabel = '今日復習';
-      } else if ((card.interval || 0) > 30) {
+      } else if ((card.interval || 0) > 21) {
         dueChipClass = 'mastered';
         dueChipLabel = '長期定着 (' + card.nextReviewDate + ')';
       }
@@ -3049,11 +3335,11 @@
           thumbHtml +
           '<div class="card-item-info">' +
             '<div class="card-item-badges">' +
-              '<span class="tag-chip">' + escapeHtml(card.tag) + '</span>' +
+              '<span class="tag-chip">' + escapeHtml(card.tag || UNTAGGED_LABEL) + '</span>' +
               '<span class="due-chip ' + dueChipClass + '">' + escapeHtml(dueChipLabel) + '</span>' +
             '</div>' +
             '<div class="card-item-title">' + escapeHtml(titleSnippet) + '</div>' +
-            '<div class="card-item-meta">間隔: ' + (card.interval || 0) + '日 ｜ 連続: ' + (card.repetition || 0) + '回 ｜ EF: ' + Number(card.efactor || 2.5).toFixed(2) + '</div>' +
+            '<div class="card-item-meta">間隔: ' + (card.interval || 0) + '日 ｜ 反復: ' + (card.repetition || 0) + '回 ｜ EF: ' + Number(card.efactor || 2.5).toFixed(2) + '</div>' +
           '</div>' +
         '</div>' +
         '<div style="color:var(--text-muted); font-size:13px; font-weight:700; flex-shrink:0;">編集 ›</div>';
@@ -3072,7 +3358,13 @@
     state.editFrontImages = (card.frontImages || []).slice();
     state.editBackImages = (card.backImages || []).slice();
 
-    document.getElementById('editTagSelect').value = card.tag;
+    var cardTag = card.tag || UNTAGGED_LABEL;
+    if (cardTag !== UNTAGGED_LABEL && state.tags.indexOf(cardTag) < 0) {
+      state.tags.push(cardTag);
+      populateTagSelects();
+    }
+
+    document.getElementById('editTagSelect').value = cardTag;
     document.getElementById('editNextDateInput').value = card.nextReviewDate;
     document.getElementById('editFrontText').value = card.frontText || '';
     document.getElementById('editBackText').value = card.backText || '';
@@ -3084,11 +3376,11 @@
   }
 
   function refreshEditThumbs() {
-    renderThumbStrip('editFrontThumbStrip', state.editFrontImages, function(idx) {
+    renderThumbStripElement(document.getElementById('editFrontThumbStrip'), state.editFrontImages, function(idx) {
       state.editFrontImages.splice(idx, 1);
       refreshEditThumbs();
     });
-    renderThumbStrip('editBackThumbStrip', state.editBackImages, function(idx) {
+    renderThumbStripElement(document.getElementById('editBackThumbStrip'), state.editBackImages, function(idx) {
       state.editBackImages.splice(idx, 1);
       refreshEditThumbs();
     });
@@ -3109,7 +3401,7 @@
       return;
     }
 
-    card.tag = document.getElementById('editTagSelect').value;
+    card.tag = document.getElementById('editTagSelect').value || UNTAGGED_LABEL;
     card.nextReviewDate = document.getElementById('editNextDateInput').value || getLocalDateString();
     card.frontText = frontText;
     card.backText = backText;
@@ -3124,7 +3416,7 @@
   }
 
   /* =========================================================
-   * 12. 設定・ストレージ容量可視化・バックアップ＆復元
+   * 13. 設定・ストレージ容量可視化・JSONバックアップ作成＆復元
    * ========================================================= */
   function renderSettingsView() {
     var jsonStr = JSON.stringify({ cards: state.cards, tags: state.tags });
@@ -3154,20 +3446,20 @@
     a.click();
     document.body.removeChild(a);
     setTimeout(function() { URL.revokeObjectURL(url); }, 2000);
-    showToast('ファイルを保存しました');
+    showToast('バックアップを保存しました');
   }
 
   function exportBackupFile() {
     var payload = {
-      appName: '教員資格認定試験 分散学習アプリ',
-      version: 1,
+      appName: '分散学習アプリ',
+      version: 2,
       exportedAt: new Date().toISOString(),
       tags: state.tags,
       cards: state.cards
     };
     var jsonStr = JSON.stringify(payload, null, 2);
-    var dateCompact = getLocalDateString().replace(/-/g, '');
-    var fileName = 'shikaku_spaced_backup_' + dateCompact + '.json';
+    var todayStr = getLocalDateString();
+    var fileName = '分散学習バックアップ_' + todayStr + '.json';
     var blob = new Blob([jsonStr], { type: 'application/json' });
     var isLocalFile = (window.location.protocol === 'file:');
 
@@ -3178,7 +3470,7 @@
           navigator.share({
             files: [fileObj],
             title: '分散学習バックアップ',
-            text: '教員資格認定試験 分散学習アプリのバックアップデータ'
+            text: '分散学習アプリのバックアップデータ'
           }).then(function() {
             showToast('共有シートから出力しました');
           }).catch(function(err) {
@@ -3243,8 +3535,11 @@
 
   function applyImportData(data, overwrite) {
     var incomingTags = Array.isArray(data.tags) ? data.tags : [];
+    if (overwrite) {
+      state.tags = [];
+    }
     incomingTags.forEach(function(t) {
-      if (t && state.tags.indexOf(t) < 0) state.tags.push(t);
+      if (t && t !== UNTAGGED_LABEL && state.tags.indexOf(t) < 0) state.tags.push(t);
     });
 
     var chain = overwrite ? dbClearAllCards() : Promise.resolve();
@@ -3252,6 +3547,9 @@
       if (overwrite) state.cards = [];
       var promises = data.cards.map(function(c) {
         if (!c.id) c.id = generateId();
+        if (c.tag && c.tag !== UNTAGGED_LABEL && state.tags.indexOf(c.tag) < 0) {
+          state.tags.push(c.tag);
+        }
         var existingIdx = state.cards.findIndex(function(ex) { return ex.id === c.id; });
         if (existingIdx >= 0) state.cards[existingIdx] = c;
         else state.cards.push(c);
@@ -3267,9 +3565,6 @@
     });
   }
 
-  /* =========================================================
-   * 13. テーマ切替＆サンプル問題投入
-   * ========================================================= */
   function applyTheme(theme) {
     state.theme = theme === 'dark' ? 'dark' : 'light';
     if (state.theme === 'dark') {
@@ -3282,65 +3577,6 @@
     dbSetSetting('theme', state.theme);
   }
 
-  function addSampleCards() {
-    var todayStr = getLocalDateString();
-    var yesterdayStr = addDaysToDateString(todayStr, -1);
-    var tomorrowStr = addDaysToDateString(todayStr, 1);
-
-    var samples = [
-      {
-        id: generateId(),
-        tag: '教育法規',
-        frontText: '学校教育法第11条に規定される「懲戒」に関する記述として、体罰が禁止されている対象と、懲戒権を持つ主体を述べよ。',
-        frontImages: [],
-        backText: '・主体：校長及び教員は、教育上必要があると認めるときは、文部科学大臣の定めるところにより、児童、生徒及び学生に懲戒を加えることができる。\n・ただし、体罰を加えることはできない（学校教育法第11条ただし書）。',
-        backImages: [],
-        createdAt: new Date().toISOString(),
-        nextReviewDate: todayStr,
-        interval: 1,
-        repetition: 1,
-        efactor: 2.5,
-        lastScore: 3
-      },
-      {
-        id: generateId(),
-        tag: '学習指導要領',
-        frontText: '小学校学習指導要領（平成29年告示）総則において、育成を目指す資質・能力の「三つの柱」とは何か。',
-        frontImages: [],
-        backText: '1. 生きて働く「知識及び技能」の習得\n2. 未知の状況にも対応できる「思考力、判断力、表現力等」の育成\n3. 学びを人生や社会に生かそうとする「学びに向かう力、人間性等」の涵養',
-        backImages: [],
-        createdAt: new Date().toISOString(),
-        nextReviewDate: yesterdayStr,
-        interval: 1,
-        repetition: 0,
-        efactor: 2.36,
-        lastScore: 2
-      },
-      {
-        id: generateId(),
-        tag: '教育心理',
-        frontText: 'エビングハウスの忘却曲線および分散学習効果（間隔効果）において、集中学習よりも分散学習が長期記憶の定着に有効とされる理由を整理せよ。',
-        frontImages: [],
-        backText: '忘却が進みかけたタイミングで再検索（想起練習）を行うことで検索努力が高まり、記憶痕跡が強化されるため。',
-        backImages: [],
-        createdAt: new Date().toISOString(),
-        nextReviewDate: tomorrowStr,
-        interval: 35,
-        repetition: 4,
-        efactor: 2.6,
-        lastScore: 5
-      }
-    ];
-
-    Promise.all(samples.map(function(s) {
-      state.cards.push(s);
-      return dbPutCard(s);
-    })).then(function() {
-      renderAllViews();
-      showToast('サンプル問題3件を追加しました');
-    });
-  }
-
   function renderAllViews() {
     renderHomeView();
     renderCardListView();
@@ -3348,28 +3584,7 @@
   }
 
   /* =========================================================
-   * 14. ドラッグ＆ドロップ補助設定
-   * ========================================================= */
-  function bindDropZone(zoneEl, getTargetArray, renderFn, sideLabel) {
-    if (!zoneEl) return;
-    zoneEl.addEventListener('dragover', function(e) {
-      e.preventDefault();
-      zoneEl.classList.add('drag-over');
-    });
-    zoneEl.addEventListener('dragleave', function() {
-      zoneEl.classList.remove('drag-over');
-    });
-    zoneEl.addEventListener('drop', function(e) {
-      e.preventDefault();
-      zoneEl.classList.remove('drag-over');
-      if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length > 0) {
-        handleFilesSelection(e.dataTransfer.files, getTargetArray(), renderFn, sideLabel + 'に画像を追加しました');
-      }
-    });
-  }
-
-  /* =========================================================
-   * 15. イベントリスナー登録・初期化
+   * 14. イベントリスナー登録・初期化
    * ========================================================= */
   function initEventListeners() {
     var tabs = document.querySelectorAll('.nav-tab');
@@ -3418,17 +3633,7 @@
     document.getElementById('startDueReviewBtn').addEventListener('click', function() {
       var due = getDueCards(getLocalDateString());
       var ordered = orderReviewQueue(due, state.dueOrderMode);
-      startReviewSession(ordered, true);
-    });
-
-    document.getElementById('freeReviewTagSelect').addEventListener('change', updateFreeReviewCount);
-    document.getElementById('freeReviewFilterSelect').addEventListener('change', updateFreeReviewCount);
-    document.getElementById('startFreeReviewBtn').addEventListener('click', function() {
-      var list = getFilteredFreeReviewCards();
-      var orderMode = document.getElementById('freeReviewOrderSelect').value || 'shuffle';
-      var ordered = orderReviewQueue(list, orderMode);
-      var mode = document.getElementById('freeReviewModeSelect').value;
-      startReviewSession(ordered, mode === 'update');
+      startReviewSession(ordered);
     });
 
     document.getElementById('showAnswerBtn').addEventListener('click', revealAnswer);
@@ -3440,64 +3645,23 @@
 
     document.querySelectorAll('.rate-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
-        var sc = Number(btn.getAttribute('data-score'));
-        submitRating(sc);
+        var grade = Number(btn.getAttribute('data-grade'));
+        submitRating(grade);
       });
     });
 
-    // カード登録：ファイル入力
-    document.getElementById('regFrontCameraInput').addEventListener('change', function(e) {
-      handleFilesSelection(e.target.files, state.regFrontImages, refreshRegThumbs);
-      e.target.value = '';
-    });
-    document.getElementById('regFrontLibraryInput').addEventListener('change', function(e) {
-      handleFilesSelection(e.target.files, state.regFrontImages, refreshRegThumbs);
-      e.target.value = '';
-    });
-    document.getElementById('regBackCameraInput').addEventListener('change', function(e) {
-      handleFilesSelection(e.target.files, state.regBackImages, refreshRegThumbs);
-      e.target.value = '';
-    });
-    document.getElementById('regBackLibraryInput').addEventListener('change', function(e) {
-      handleFilesSelection(e.target.files, state.regBackImages, refreshRegThumbs);
-      e.target.value = '';
+    document.getElementById('addDraftCardBtn').addEventListener('click', function() {
+      state.regDrafts.push(createEmptyDraft());
+      state.activeDraftIndex = state.regDrafts.length - 1;
+      renderRegDrafts();
     });
 
-    // カード登録：テキスト欄への直接画像ペースト
-    document.getElementById('regFrontText').addEventListener('paste', function(e) {
-      extractImagesFromClipboardEvent(e, state.regFrontImages, refreshRegThumbs, '表面（問題）');
-    });
-    document.getElementById('regBackText').addEventListener('paste', function(e) {
-      extractImagesFromClipboardEvent(e, state.regBackImages, refreshRegThumbs, '裏面（解答・解説）');
-    });
+    document.getElementById('saveNewCardBtn').addEventListener('click', saveAllDraftCards);
 
-    // カード登録：ワンタップ「スクショ貼付」ボタン
-    document.getElementById('regFrontPasteBtn').addEventListener('click', function() {
-      readClipboardImageButton(state.regFrontImages, refreshRegThumbs, '表面（問題）', 'regFrontText');
-    });
-    document.getElementById('regBackPasteBtn').addEventListener('click', function() {
-      readClipboardImageButton(state.regBackImages, refreshRegThumbs, '裏面（解答・解説）', 'regBackText');
-    });
-
-    // カード登録：ドラッグ＆ドロップ
-    bindDropZone(
-      document.getElementById('regFrontDropZone'),
-      function() { return state.regFrontImages; },
-      refreshRegThumbs,
-      '表面（問題）'
-    );
-    bindDropZone(
-      document.getElementById('regBackDropZone'),
-      function() { return state.regBackImages; },
-      refreshRegThumbs,
-      '裏面（解答・解説）'
-    );
-
-    // 登録画面でテキスト欄以外にフォーカスがある時の Ctrl+V フォールバック（表面優先、3枚満杯なら裏面へ）
     document.addEventListener('paste', function(e) {
       var activeEl = document.activeElement;
       if (activeEl && (activeEl.tagName === 'TEXTAREA' || activeEl.tagName === 'INPUT')) {
-        return; // 各テキストエリアの個別ハンドラに委譲
+        return;
       }
       if (document.getElementById('editCardModal').classList.contains('active')) {
         if (state.editFrontImages.length < MAX_IMAGES_PER_SIDE) {
@@ -3508,20 +3672,20 @@
         return;
       }
       if (document.getElementById('view-register').classList.contains('active')) {
-        if (state.regFrontImages.length < MAX_IMAGES_PER_SIDE) {
-          extractImagesFromClipboardEvent(e, state.regFrontImages, refreshRegThumbs, '表面（問題）');
+        var targetDraft = state.regDrafts[state.activeDraftIndex] || state.regDrafts[0];
+        if (!targetDraft) return;
+        if (targetDraft.frontImages.length < MAX_IMAGES_PER_SIDE) {
+          extractImagesFromClipboardEvent(e, targetDraft.frontImages, renderRegDrafts, '表面（問題）');
         } else {
-          extractImagesFromClipboardEvent(e, state.regBackImages, refreshRegThumbs, '裏面（解答・解説）');
+          extractImagesFromClipboardEvent(e, targetDraft.backImages, renderRegDrafts, '裏面（解答・解説）');
         }
       }
     });
 
-    document.getElementById('saveNewCardBtn').addEventListener('click', saveNewCard);
-
-    // 新規科目タグ追加モーダル
     document.getElementById('openNewTagModalBtn').addEventListener('click', function() {
       document.getElementById('newTagNameInput').value = '';
       document.getElementById('newTagModal').classList.add('active');
+      setTimeout(function() { document.getElementById('newTagNameInput').focus(); }, 60);
     });
     var closeNewTag = function() {
       document.getElementById('newTagModal').classList.remove('active');
@@ -3534,24 +3698,21 @@
         showToast('タグ名を入力してください');
         return;
       }
-      if (state.tags.indexOf(val) < 0) {
+      if (val !== UNTAGGED_LABEL && state.tags.indexOf(val) < 0) {
         state.tags.push(val);
         dbSetSetting('tags', state.tags);
       }
+      state.selectedRegTag = val;
       populateTagSelects();
-      document.getElementById('regTagSelect').value = val;
-      renderRegTagChipBar();
       closeNewTag();
       showToast('タグ「' + val + '」を追加しました');
     });
 
-    // カード一覧：検索・フィルタ
     document.getElementById('listSearchInput').addEventListener('input', renderCardListView);
     document.getElementById('listTagFilter').addEventListener('change', renderCardListView);
     document.getElementById('listStatusFilter').addEventListener('change', renderCardListView);
     document.getElementById('listSortSelect').addEventListener('change', renderCardListView);
 
-    // カード編集モーダル
     var closeEditModal = function() {
       document.getElementById('editCardModal').classList.remove('active');
     };
@@ -3568,7 +3729,6 @@
       e.target.value = '';
     });
 
-    // カード編集モーダル：テキスト欄への直接画像ペースト＆ボタン貼付
     document.getElementById('editFrontText').addEventListener('paste', function(e) {
       extractImagesFromClipboardEvent(e, state.editFrontImages, refreshEditThumbs, '表面（問題）');
     });
@@ -3576,10 +3736,10 @@
       extractImagesFromClipboardEvent(e, state.editBackImages, refreshEditThumbs, '裏面（解答・解説）');
     });
     document.getElementById('editFrontPasteBtn').addEventListener('click', function() {
-      readClipboardImageButton(state.editFrontImages, refreshEditThumbs, '表面（問題）', 'editFrontText');
+      readClipboardImageToTarget(state.editFrontImages, refreshEditThumbs, '表面（問題）', document.getElementById('editFrontText'));
     });
     document.getElementById('editBackPasteBtn').addEventListener('click', function() {
-      readClipboardImageButton(state.editBackImages, refreshEditThumbs, '裏面（解答・解説）', 'editBackText');
+      readClipboardImageToTarget(state.editBackImages, refreshEditThumbs, '裏面（解答・解説）', document.getElementById('editBackText'));
     });
 
     document.getElementById('quickSetTodayBtn').addEventListener('click', function() {
@@ -3597,10 +3757,10 @@
       card.repetition = 0;
       card.efactor = 2.5;
       card.lastScore = null;
-      var tomorrow = addDaysToDateString(getLocalDateString(), 1);
-      document.getElementById('editNextDateInput').value = tomorrow;
+      var today = getLocalDateString();
+      document.getElementById('editNextDateInput').value = today;
       document.getElementById('editSm2InfoText').textContent = '間隔: 0日 / 反復: 0回 / EF: 2.50';
-      showToast('SM-2パラメータを初期化しました');
+      showToast('定着度を初期化しました');
     });
 
     document.getElementById('deleteCardBtn').addEventListener('click', function() {
@@ -3627,7 +3787,6 @@
       );
     });
 
-    // 設定：バックアップ＆復元・サンプル追加・全初期化
     document.getElementById('exportBackupBtn').addEventListener('click', exportBackupFile);
     document.getElementById('importBackupInput').addEventListener('change', function(e) {
       if (e.target.files && e.target.files[0]) {
@@ -3635,11 +3794,10 @@
       }
       e.target.value = '';
     });
-    document.getElementById('loadDemoCardsBtn').addEventListener('click', addSampleCards);
     document.getElementById('resetAllDataBtn').addEventListener('click', function() {
       openConfirmModal(
         '全データの初期化',
-        '登録されているすべてのカードと追加タグを削除し、初期状態に戻します。よろしいですか？',
+        '登録されているすべてのカードとタグを削除し、初期状態に戻します。よろしいですか？',
         [
           { label: 'キャンセル', className: 'icon-btn' },
           {
@@ -3648,7 +3806,8 @@
             onClick: function() {
               dbClearAllCards().then(function() {
                 state.cards = [];
-                state.tags = DEFAULT_TAGS.slice();
+                state.tags = [];
+                state.selectedRegTag = '';
                 return dbSetSetting('tags', state.tags);
               }).then(function() {
                 populateTagSelects();
@@ -3669,79 +3828,6 @@
     document.getElementById('lightboxImg').addEventListener('click', toggleLightboxZoom);
     document.getElementById('backToPortalBtn').addEventListener('click', function() {
       window.location.href = './index.html';
-    });
-
-    document.getElementById('exportBakedAnkiHtmlBtn').addEventListener('click', function() {
-      var rawHtml = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
-      var sMarker = '/* __ANKI_DEFAULTS_START__ */';
-      var eMarker = '/* __ANKI_DEFAULTS_END__ */';
-      var sIdx = rawHtml.indexOf(sMarker);
-      var eIdx = rawHtml.indexOf(eMarker);
-      if (sIdx === -1 || eIdx === -1) {
-        showToast('テンプレート領域が見つかりません');
-        return;
-      }
-      var replacement =
-        sMarker + '\n' +
-        '  var DEFAULT_TAGS = ' + JSON.stringify(state.tags, null, 2) + ';\n' +
-        '  var DEFAULT_CARDS = ' + JSON.stringify(state.cards, null, 2) + ';\n  ' +
-        eMarker;
-      var finalHtml = rawHtml.slice(0, sIdx) + replacement + rawHtml.slice(eIdx + eMarker.length);
-      var blob = new Blob([finalHtml], { type: 'text/html' });
-      triggerAnchorDownload(blob, 'anki.html');
-    });
-
-    document.getElementById('copyAnkiJsonBtn').addEventListener('click', function() {
-      var payload = {
-        appName: '教員資格認定試験 分散学習アプリ',
-        version: 1,
-        exportedAt: new Date().toISOString(),
-        tags: state.tags,
-        cards: state.cards
-      };
-      var str = JSON.stringify(payload, null, 2);
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(str).then(function() {
-          showToast('📋 JSON文字列をコピーしました');
-        });
-      } else {
-        var ta = document.createElement('textarea');
-        ta.value = str;
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand('copy');
-        document.body.removeChild(ta);
-        showToast('📋 JSON文字列をコピーしました');
-      }
-    });
-
-    document.getElementById('toggleAnkiPasteJsonBtn').addEventListener('click', function() {
-      var area = document.getElementById('ankiPasteJsonArea');
-      area.style.display = area.style.display === 'none' ? 'block' : 'none';
-      if (area.style.display === 'block') document.getElementById('ankiPasteJsonTextarea').focus();
-    });
-    document.getElementById('cancelAnkiPasteJsonBtn').addEventListener('click', function() {
-      document.getElementById('ankiPasteJsonArea').style.display = 'none';
-      document.getElementById('ankiPasteJsonTextarea').value = '';
-    });
-    document.getElementById('applyAnkiPasteJsonBtn').addEventListener('click', function() {
-      var raw = document.getElementById('ankiPasteJsonTextarea').value.trim();
-      if (!raw) {
-        showToast('JSON文字列を貼り付けてください');
-        return;
-      }
-      try {
-        var data = JSON.parse(raw);
-        if (!data || !Array.isArray(data.cards)) {
-          showToast('有効なバックアップ形式ではありません');
-          return;
-        }
-        document.getElementById('ankiPasteJsonArea').style.display = 'none';
-        document.getElementById('ankiPasteJsonTextarea').value = '';
-        applyImportData(data, false);
-      } catch (e) {
-        showToast('JSONの解析に失敗しました');
-      }
     });
 
     document.querySelectorAll('.modal-backdrop').forEach(function(backdrop) {
@@ -3775,7 +3861,7 @@
         if (isAnswerHidden && (e.key === ' ' || e.key === 'Enter')) {
           e.preventDefault();
           revealAnswer();
-        } else if (!isAnswerHidden && e.key >= '0' && e.key <= '5') {
+        } else if (!isAnswerHidden && e.key >= '1' && e.key <= '4') {
           e.preventDefault();
           submitRating(Number(e.key));
         } else if ((e.key === 'Backspace' || e.key === 'z' || e.key === 'Z') && !document.getElementById('undoReviewBtn').disabled) {
@@ -3795,6 +3881,12 @@
       dbGetSetting('dueOrderMode', 'shuffle'),
       dbGetSetting('regInitialTiming', 'today')
     ]).then(function(results) {
+      state.cards = Array.isArray(results[0]) ? results[0] : [];
+      if (Array.isArray(results[1])) {
+        state.tags = results[1].filter(function(t) { return t && t !== UNTAGGED_LABEL; });
+      } else {
+        state.tags = [];
+      }
       state.dueOrderMode = results[3] || 'shuffle';
       document.querySelectorAll('#dueOrderPillGroup .order-pill-btn').forEach(function(b) {
         b.classList.toggle('active', b.getAttribute('data-order') === state.dueOrderMode);
@@ -3803,26 +3895,11 @@
       document.querySelectorAll('#regInitialTimingGroup .order-pill-btn').forEach(function(b) {
         b.classList.toggle('active', b.getAttribute('data-timing') === state.regInitialTiming);
       });
-      var loadedCards = Array.isArray(results[0]) ? results[0] : [];
-      if (loadedCards.length === 0 && Array.isArray(DEFAULT_CARDS) && DEFAULT_CARDS.length > 0) {
-        state.cards = JSON.parse(JSON.stringify(DEFAULT_CARDS));
-        state.cards.forEach(function(c) { dbPutCard(c); });
-      } else {
-        state.cards = loadedCards;
-      }
-      if (Array.isArray(results[1]) && results[1].length > 0) {
-        var merged = DEFAULT_TAGS.slice();
-        results[1].forEach(function(t) {
-          if (t && merged.indexOf(t) < 0) merged.push(t);
-        });
-        state.tags = merged;
-      } else {
-        state.tags = DEFAULT_TAGS.slice();
-      }
+
       var prefDark = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
       applyTheme(results[2] || prefDark);
       populateTagSelects();
-      refreshRegThumbs();
+      renderRegDrafts();
       renderAllViews();
     });
   }
